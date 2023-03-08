@@ -17,34 +17,51 @@ const ProgressBarExercise = () => {
 export default ProgressBarExercise;
 
 // ----------------------------------------------------------------------------------
+const REQUEST_STATES = {
+  IDLE: "idle",
+  LOADING: "loading",
+  COMPLETE: "complete",
+};
+
 const ProgressBar = (props) => {
+  let modifierClassMap = {
+    [REQUEST_STATES.IDLE]: "",
+    [REQUEST_STATES.LOADING]: "bar-loading",
+    [REQUEST_STATES.COMPLETE]: "bar-complete",
+  };
+
   return (
     <div className="spiff-progress-bar--container">
-      <div className="spiff-progress-bar--bar" />
+      <div
+        className={`spiff-progress-bar--bar ${
+          modifierClassMap[props.requestState]
+        }`}
+      />
     </div>
   );
 };
 
 const Solution = () => {
-  const [isRequestActive, setIsRequestActive] = useState(false);
+  const [requestState, setRequestState] = useState(REQUEST_STATES.IDLE);
 
   return (
     <div>
-      <ProgressBar />
+      <ProgressBar requestState={requestState} />
       <SpiffButton
-        disabled={isRequestActive}
-        onClick={() => setIsRequestActive(true)}
+        disabled={requestState !== REQUEST_STATES.IDLE}
+        onClick={() => setRequestState(REQUEST_STATES.LOADING)}
       >
-        {isRequestActive ? "Loading..." : "Start Request"}
+        {requestState === REQUEST_STATES.LOADING
+          ? "Loading..."
+          : "Start Request"}
       </SpiffButton>
-      {isRequestActive && (
-        <SpiffButton
-          onClick={() => setIsRequestActive(false)}
-          variant="destroy"
-        >
-          Finish Request
-        </SpiffButton>
-      )}
+      <SpiffButton
+        disabled={requestState !== REQUEST_STATES.LOADING}
+        onClick={() => setRequestState(REQUEST_STATES.COMPLETE)}
+        variant="destroy"
+      >
+        Finish Request
+      </SpiffButton>
     </div>
   );
 };

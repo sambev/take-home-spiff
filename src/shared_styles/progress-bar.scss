@@ -2,16 +2,30 @@ $spiff-progress-bar-height: 6px;
 
 .spiff-progress-bar--container {
     width: 100%;
-    height: $spiff-progress-bar-height;
     border-radius: $spiff-progress-bar-height;
     border: 1px solid black;
     margin-bottom: 20px;
 }
 
 .spiff-progress-bar--bar {
-    width: 100%;
-    height: 100%;
+    height: $spiff-progress-bar-height;
+    width: 0%;
     border-radius: $spiff-progress-bar-height;
     background: linear-gradient(.25turn, $sunrise, 50%, $red);
 }
 
+.spiff-progress-bar--bar.bar-loading {
+    width: 90%;
+    -webkit-transition: width 15s ease-in-out, padding-left 1s ease-in-out, padding-right 1s ease-in-out;
+    -moz-transition: width 15s ease-in-out, padding-left 1s ease-in-out, padding-right 1s ease-in-out;
+    -o-transition: width 15s ease-in-out, padding-left 1s ease-in-out, padding-right 1s ease-in-out;
+    transition: width 15s ease-in-out, padding-left 1s ease-in-out, padding-right 1s ease-in-out;
+}
+
+.spiff-progress-bar--bar.bar-complete {
+    width: 100%;
+    -webkit-transition: width 1s ease-in-out, padding-left 1s ease-in-out, padding-right 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out, padding-left 1s ease-in-out, padding-right 1s ease-in-out;
+    -o-transition: width 1s ease-in-out, padding-left 1s ease-in-out, padding-right 1s ease-in-out;
+    transition: width 1s ease-in-out, padding-left 1s ease-in-out, padding-right 1s ease-in-out;
+}
