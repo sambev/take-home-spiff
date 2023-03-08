@@ -29,11 +29,15 @@ export const ProgressBar = ({ requestState }) => {
 
   return (
     <div
+      data-testid="progress-bar--container"
       className={`spiff-progress-bar--container ${
         isDismissed ? "bar-dismissed" : ""
       }`}
     >
-      <div className={`spiff-progress-bar--bar ${barClassMap[requestState]}`} />
+      <div
+        data-testid="progress-bar--bar"
+        className={`spiff-progress-bar--bar ${barClassMap[requestState]}`}
+      />
     </div>
   );
 };

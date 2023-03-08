@@ -25,6 +25,7 @@ const Solution = () => {
     <div>
       <ProgressBar requestState={requestState} />
       <SpiffButton
+        data-testid="start-request-button"
         disabled={requestState !== REQUEST_STATES.IDLE}
         onClick={() => setRequestState(REQUEST_STATES.LOADING)}
       >
@@ -33,6 +34,7 @@ const Solution = () => {
           : "Start Request"}
       </SpiffButton>
       <SpiffButton
+        data-testid="finish-request-button"
         disabled={requestState !== REQUEST_STATES.LOADING}
         onClick={() => setRequestState(REQUEST_STATES.COMPLETE)}
         variant="destroy"
