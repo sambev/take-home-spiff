@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Exercise from "../exercise/Exercise";
 import { SpiffButton } from "./components/SpiffButton";
+import { REQUEST_STATES, ProgressBar } from "./components/ProgressBar";
 
 const ProgressBarExercise = () => {
   return (
@@ -17,44 +18,6 @@ const ProgressBarExercise = () => {
 export default ProgressBarExercise;
 
 // ----------------------------------------------------------------------------------
-const REQUEST_STATES = {
-  IDLE: "idle",
-  LOADING: "loading",
-  COMPLETE: "complete",
-};
-
-const ProgressBar = ({ requestState }) => {
-  const [isDismissed, setIsDismissed] = useState(false);
-
-  let barClassMap = {
-    [REQUEST_STATES.IDLE]: "",
-    [REQUEST_STATES.LOADING]: "bar-loading",
-    [REQUEST_STATES.COMPLETE]: "bar-complete",
-  };
-
-  useEffect(() => {
-    let timeoutID = null;
-
-    if (requestState === REQUEST_STATES.COMPLETE) {
-      timeoutID = setTimeout(() => {
-        setIsDismissed(true);
-      }, 3000);
-    }
-
-    return () => clearTimeout(timeoutID);
-  }, [requestState]);
-
-  return (
-    <div
-      className={`spiff-progress-bar--container ${
-        isDismissed ? "bar-dismissed" : ""
-      }`}
-    >
-      <div className={`spiff-progress-bar--bar ${barClassMap[requestState]}`} />
-    </div>
-  );
-};
-
 const Solution = () => {
   const [requestState, setRequestState] = useState(REQUEST_STATES.IDLE);
 
