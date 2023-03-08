@@ -17,11 +17,16 @@ const ProgressBarExercise = () => {
 export default ProgressBarExercise;
 
 // ----------------------------------------------------------------------------------
+const ProgressBar = (props) => {
+  return <div className="spiff-progress-bar" />;
+};
+
 const Solution = () => {
   const [isRequestActive, setIsRequestActive] = useState(false);
 
   return (
     <div>
+      <ProgressBar />
       {isRequestActive ? (
         <SpiffButton
           onClick={() => setIsRequestActive(false)}
