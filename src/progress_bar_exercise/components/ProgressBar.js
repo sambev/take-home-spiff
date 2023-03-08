@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 export const REQUEST_STATES = {
   IDLE: "idle",
@@ -6,6 +7,10 @@ export const REQUEST_STATES = {
   COMPLETE: "complete",
 };
 
+/**
+ * Core ProgressBar component. Renders a progress bar that uses css to manage
+ * width and time animation. Look to the css for more details.
+ */
 export const ProgressBar = ({ requestState }) => {
   const [isDismissed, setIsDismissed] = useState(false);
 
@@ -40,4 +45,8 @@ export const ProgressBar = ({ requestState }) => {
       />
     </div>
   );
+};
+
+ProgressBar.propTypes = {
+  requestState: PropTypes.object.isRequired,
 };

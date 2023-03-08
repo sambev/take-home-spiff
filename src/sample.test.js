@@ -5,6 +5,11 @@ import "@testing-library/jest-dom";
 
 import ProgressBarExercise from "./progress_bar_exercise/ProgressBarExercise";
 
+/**
+ * I'm not familiar at all with react-testing-library. There are some tests I'd
+ * like to add, but some of the waiting for API's seem to have changed since the
+ * version in project has been used. So I'm leaving the tests like this for now.
+ */
 test("ProgressBar idle state", async () => {
   render(<ProgressBarExercise />);
 
