@@ -31,16 +31,18 @@ const Solution = () => {
   return (
     <div>
       <ProgressBar />
-      {isRequestActive ? (
+      <SpiffButton
+        disabled={isRequestActive}
+        onClick={() => setIsRequestActive(true)}
+      >
+        {isRequestActive ? "Loading..." : "Start Request"}
+      </SpiffButton>
+      {isRequestActive && (
         <SpiffButton
           onClick={() => setIsRequestActive(false)}
           variant="destroy"
         >
-          FINISH REQUEST
-        </SpiffButton>
-      ) : (
-        <SpiffButton onClick={() => setIsRequestActive(true)}>
-          START REQUEST
+          Finish Request
         </SpiffButton>
       )}
     </div>
