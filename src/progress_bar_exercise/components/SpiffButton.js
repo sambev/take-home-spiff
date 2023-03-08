@@ -1,8 +1,10 @@
 import React from "react";
 
-export const SpiffButton = ({ children, ...rest }) => {
+export const SpiffButton = ({ children, variant = "primary", ...rest }) => {
+  const className = `spiff-button spiff-button--${variant}`;
+
   return (
-    <button className="spiff-button" {...rest}>
+    <button className={className} {...rest}>
       {children}
     </button>
   );

@@ -1,12 +1,20 @@
 button.spiff-button {
-    border: 1px solid $green;
+    border: 1px solid;
     border-radius: 30px;
-    color: $green;
     font-weight: 600;
     letter-spacing: 0.6px;
-    color: $green;
     padding: 15px 30px;
 
+}
+
+button.spiff-button--primary {
+    border-color: $green;
+    color: $green;
+}
+
+button.spiff-button--destroy {
+    border-color: $red;
+    color: $red;
 }
 
 button.spiff-button:hover {
@@ -15,4 +23,8 @@ button.spiff-button:hover {
 
 button.spiff-button:active {
     border-width: 3px;
+}
+
+button.spiff-button--destroy {
+    color: $red
 }
