@@ -56,5 +56,5 @@ export const ProgressBar = ({ requestState }) => {
 };
 
 ProgressBar.propTypes = {
-  requestState: PropTypes.object.isRequired,
+  requestState: PropTypes.oneOf(Object.values(REQUEST_STATES)).isRequired,
 };
