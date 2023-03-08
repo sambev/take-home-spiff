@@ -10,6 +10,9 @@ export const REQUEST_STATES = {
 /**
  * Core ProgressBar component. Renders a progress bar that uses css to manage
  * width and time animation. Look to the css for more details.
+ *
+ * The css/classes are getting a little messy. If I had more time I'd probably
+ * write a helper or use a library to manage the classes.
  */
 export const ProgressBar = ({ requestState }) => {
   const [isDismissed, setIsDismissed] = useState(false);
@@ -20,6 +23,11 @@ export const ProgressBar = ({ requestState }) => {
     [REQUEST_STATES.COMPLETE]: "bar-complete",
   };
 
+  /**
+   * This makes the component go away visually but it is still in the dom.
+   * If I had more time I think I'd make a callback to the parent component
+   * so it could take it out of the DOM when the animation is done.
+   */
   useEffect(() => {
     let timeoutID = null;
 
