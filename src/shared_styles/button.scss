@@ -26,6 +26,8 @@ button.spiff-button:active {
     border-width: 3px;
 }
 
-button.spiff-button--destroy {
-    color: $red
+button.spiff-button:disabled {
+    cursor: not-allowed;
+    border-color: $gray-light;
+    color: $gray-light;
 }
