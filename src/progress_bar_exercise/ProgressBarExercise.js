@@ -18,7 +18,11 @@ export default ProgressBarExercise;
 
 // ----------------------------------------------------------------------------------
 const ProgressBar = (props) => {
-  return <div className="spiff-progress-bar" />;
+  return (
+    <div className="spiff-progress-bar--container">
+      <div className="spiff-progress-bar--bar" />
+    </div>
+  );
 };
 
 const Solution = () => {
