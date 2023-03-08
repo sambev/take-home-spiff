@@ -1,0 +1,40 @@
+$spiff-progress-bar-height: 6px;
+
+.spiff-progress-bar--container {
+    opacity: 1;
+    width: 100%;
+    border-radius: $spiff-progress-bar-height;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.spiff-progress-bar--container.bar-dismissed {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 15s ease-in-out;
+    -o-transition: opacity 15s ease-in-out;
+}
+
+.spiff-progress-bar--bar {
+    height: $spiff-progress-bar-height;
+    width: 0%;
+    border-radius: $spiff-progress-bar-height;
+    background: linear-gradient(.25turn, $sunrise, 50%, $red);
+}
+
+.spiff-progress-bar--bar.bar-loading {
+    width: 90%;
+    transition: width 15s ease-in-out;
+    -webkit-transition: width 15s ease-in-out;
+    -moz-transition: width 15s ease-in-out;
+    -o-transition: width 15s ease-in-out;
+}
+
+.spiff-progress-bar--bar.bar-complete {
+    width: 100%;
+    transition: width 1s ease-in-out;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+}

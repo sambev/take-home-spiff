@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Exercise from "../exercise/Exercise";
+import { SpiffButton } from "./components/SpiffButton";
+import { REQUEST_STATES, ProgressBar } from "./components/ProgressBar";
 
 const ProgressBarExercise = () => {
   return (
@@ -16,7 +18,29 @@ const ProgressBarExercise = () => {
 export default ProgressBarExercise;
 
 // ----------------------------------------------------------------------------------
-
 const Solution = () => {
-  return <div>Add solution here</div>;
+  const [requestState, setRequestState] = useState(REQUEST_STATES.IDLE);
+
+  return (
+    <div>
+      <ProgressBar requestState={requestState} />
+      <SpiffButton
+        data-testid="start-request-button"
+        disabled={requestState !== REQUEST_STATES.IDLE}
+        onClick={() => setRequestState(REQUEST_STATES.LOADING)}
+      >
+        {requestState === REQUEST_STATES.LOADING
+          ? "Loading..."
+          : "Start Request"}
+      </SpiffButton>
+      <SpiffButton
+        data-testid="finish-request-button"
+        disabled={requestState !== REQUEST_STATES.LOADING}
+        onClick={() => setRequestState(REQUEST_STATES.COMPLETE)}
+        variant="destroy"
+      >
+        Finish Request
+      </SpiffButton>
+    </div>
+  );
 };

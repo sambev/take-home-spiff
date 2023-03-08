@@ -1,0 +1,33 @@
+button.spiff-button {
+    border: 1px solid;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    padding: 15px 30px;
+    text-transform: uppercase;
+
+}
+
+button.spiff-button--primary {
+    border-color: $green;
+    color: $green;
+}
+
+button.spiff-button--destroy {
+    border-color: $red;
+    color: $red;
+}
+
+button.spiff-button:hover {
+    border-width: 2px;
+}
+
+button.spiff-button:active {
+    border-width: 3px;
+}
+
+button.spiff-button:disabled {
+    cursor: not-allowed;
+    border-color: $gray-light;
+    color: $gray-light;
+}
