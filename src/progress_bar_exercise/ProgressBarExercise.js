@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Exercise from "../exercise/Exercise";
 import { SpiffButton } from "./components/SpiffButton";
 
@@ -17,11 +17,23 @@ const ProgressBarExercise = () => {
 export default ProgressBarExercise;
 
 // ----------------------------------------------------------------------------------
-
 const Solution = () => {
+  const [isRequestActive, setIsRequestActive] = useState(false);
+
   return (
     <div>
-      <SpiffButton>START REQUEST</SpiffButton>
+      {isRequestActive ? (
+        <SpiffButton
+          onClick={() => setIsRequestActive(false)}
+          variant="destroy"
+        >
+          FINISH REQUEST
+        </SpiffButton>
+      ) : (
+        <SpiffButton onClick={() => setIsRequestActive(true)}>
+          START REQUEST
+        </SpiffButton>
+      )}
     </div>
   );
 };
