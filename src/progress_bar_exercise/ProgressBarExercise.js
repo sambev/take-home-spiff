@@ -20,10 +20,12 @@ export default ProgressBarExercise;
 // ----------------------------------------------------------------------------------
 const Solution = () => {
   const [requestState, setRequestState] = useState(REQUEST_STATES.IDLE);
+  const [useBreakPoints, setUseBreakPoints] = useState(false);
+  const breakPoints = useBreakPoints ? [10, 30, 80] : [];
 
   return (
     <div>
-      <ProgressBar requestState={requestState} />
+      <ProgressBar breakPoints={breakPoints} requestState={requestState} />
       <SpiffButton
         data-testid="start-request-button"
         disabled={requestState !== REQUEST_STATES.IDLE}
@@ -41,6 +43,14 @@ const Solution = () => {
       >
         Finish Request
       </SpiffButton>
+      <input
+        id="use-break-points"
+        name="use-break-points"
+        checked={useBreakPoints}
+        onChange={() => setUseBreakPoints(!useBreakPoints)}
+        type="checkbox"
+      />
+      <label htmlFor="use-break-points">Use BreakPoints</label>
     </div>
   );
 };
