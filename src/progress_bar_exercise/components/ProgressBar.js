@@ -127,7 +127,7 @@ ProgressBar.propTypes = {
  *  { width: 32, transition: 3 },
  *  { width: 90, transition: 1 }] // allways go to 90 at the end and hang
  */
-function getProgressPoints(breakpoints = []) {
+export function getProgressPoints(breakpoints = []) {
   // If there are no breakpoints, just return a single point, 90 at 15s
   if (breakpoints == null || breakpoints.length === 0) {
     return [{ width: 90, transition: 15 }];
